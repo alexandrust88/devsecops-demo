@@ -1,5 +1,5 @@
 # Note that Jenkins is based on Debian 9
-FROM jenkins/jenkins:2.249.3
+FROM jenkins/jenkins:2.263.1
 
 ENV JENKINS_ADMIN_USER=$JENKINS_ADMIN_USER \
     JENKINS_ADMIN_PASSWORD=$JENKINS_ADMIN_USER
@@ -110,7 +110,7 @@ ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 
 # Bootstrap the Jenkins plugins
 COPY config/plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli   --plugin-file /usr/share/jenkins/ref/plugins.txt   --latest-specified 
 
 # Bootstrap with Jenkins Configuration as Code (casC) plugin
 COPY config/jenkins.yml jenkins.yml

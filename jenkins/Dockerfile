@@ -1,5 +1,5 @@
 # Note that Jenkins is based on Debian 9
-FROM jenkins/jenkins:2.263.1
+FROM jenkins/jenkins:2.300
 
 ENV JENKINS_ADMIN_USER=$JENKINS_ADMIN_USER \
     JENKINS_ADMIN_PASSWORD=$JENKINS_ADMIN_USER
